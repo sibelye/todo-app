@@ -1,0 +1,24 @@
+<div style="text-align:center">
+  <h1>
+    Bienvenue sur notre site {{ title }}
+  </h1>
+</div>
+<div class="container">
+  <form #todoForm= "ngForm" (ngSubmit)="todoSubmit(todoForm.value)">     
+    <div class="form-group">
+      <h1 class="text-center text-primary"> Agenda du jour </h1>
+        <span class="input-group-text">
+          <i class="material-icons" (click)="addTodo()">add</i>
+        </span>
+    <div class="data" mwlDroppable>
+    <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+      <ng-container *ngFor="let todo of todoArray">
+        <app-card mwlDraggable [order]="0" [_id]="todo._id" [commentaires]="todo.commentaires" 
+        (delete)="deleteItem(todo)" (dragEnd)="dragEnd($event, todo)" fxFlex="0 1 calc(33.3% - 32px)"></app-card>
+      </ng-container>
+    </div>
+    </div>
+    </div>
+  </form>
+  <!-- <button type="button" (click)="onClickMe()"> sauvegarder</button> -->
+</div>

@@ -1,0 +1,4 @@
+<div (dragEnd)="dragEnd($event)">
+    <textarea name="nom" rows=4 cols=40 (focusout)="focusOut()" [(ngModel)]="commentaires">Texte</textarea>
+    <i class="trash material-icons" (click)="onDelete(todo)">delete</i>
+</div>
